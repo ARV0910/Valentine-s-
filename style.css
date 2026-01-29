@@ -37,7 +37,7 @@ body {
   border-radius: 20px;
   text-align: center;
 
-  box-shadow: 0 0 30px rgba(255,105,180,0.35);
+  box-shadow: 0 0 30px rgba(231, 35, 133, 0.8);
 
   position: relative;
   z-index: 5;
@@ -201,5 +201,11 @@ button:active {
 /* ===== YES MODE BACKGROUND ===== */
 
 body.yes-mode {
-  background: linear-gradient(135deg, #ff9acb, #ffc3e6);
+  background: linear-gradient(135deg, #FF95F4, #FFC2F5);
+  transition: background 1.8s ease;
 }
+
+body.yes-mode .card {
+  box-shadow: 0 0 40px rgba(250, 61, 145, 0.74);
+}
+/* #C4FDA0, #A5FFFA */ 
