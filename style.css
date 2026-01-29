@@ -81,8 +81,8 @@ button {
 
   box-shadow: 0 0 12px rgba(255,120,180,0.6);
 
-  transition:
-  transform 0.02s linear,
+  transition: 
+  transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1),
   box-shadow 0.08s ease,
   background 0.08s ease;
   
@@ -201,7 +201,7 @@ button:active {
 /* ===== YES MODE BACKGROUND ===== */
 
 body.yes-mode {
-  background: linear-gradient(135deg, #FF95F4, #FFC2F5);
+  background: linear-gradient(135deg, #FD8AF1, #ECB1E2);
   transition: background 1.8s ease;
 }
 
