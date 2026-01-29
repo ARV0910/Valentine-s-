@@ -92,6 +92,8 @@ button {
 
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  
+  touch-action: manipulation;
 }
 
 /* Desktop hover */
