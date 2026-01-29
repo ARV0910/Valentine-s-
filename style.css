@@ -82,9 +82,11 @@ button {
   box-shadow: 0 0 12px rgba(255,120,180,0.6);
 
   transition:
-  transform 0.04s cubic-bezier(0.25, 0.8, 0.25, 1),
+  transform 0.02s linear,
   box-shadow 0.08s ease,
   background 0.08s ease;
+  
+  backface-visibility: hidden;
 
   will-change: transform;
 
@@ -103,7 +105,8 @@ button {
 
 /* Pressed */
 button:active {
-  transform: scale(calc(var(--scale, 1) * 0.96)); 
+  transition: transform 0.01s linear;
+  transform: scale(0.97);
   box-shadow: 0 0 6px rgba(255,120,180,0.35);
 }
 

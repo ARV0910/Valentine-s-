@@ -22,9 +22,11 @@ nextBtn.addEventListener("pointerdown", () => {
     fadeText(messages[index]);
   }
 
-  if (index === messages.length - 1) {
+  if(index === messages.length - 1){
+  setTimeout(() => {
     nextBtn.style.display = "none";
     choices.classList.remove("hidden");
+  }, 160);
   }
 });
 
