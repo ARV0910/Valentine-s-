@@ -28,16 +28,34 @@ nextBtn.addEventListener("click", () => {
 });
 
 yesBtn.addEventListener("click", () => {
-  spawnHeart();
-  spawnHeart();
-  spawnHeart();
+
+  // Burst hearts
+  for(let i = 0; i < 25; i++){
+    setTimeout(spawnHeart, i * 60);
+  }
+
+  // Confetti
   spawnConfetti();
+
+  // Change text
   text.innerText = "YAYYYY 💍💖 I LOVE YOUUU";
+
+  // Hide buttons
   choices.classList.add("hidden");
+
+  // Background transition
+  document.body.classList.add("yes-mode");
+
 });
 
+let noScale = 1;
+
 noBtn.addEventListener("click", () => {
-  fadeText("I'll keep trying till you say yes 🥺❤️");
+  noScale -= 0.12; // shrink amount
+  if(noScale < 0.4) noScale = 0.001; // minimum size
+
+  noBtn.style.transform = `scale(${noScale})`;
+  text.innerText = "I'll keep trying till you say yes 🥺💝";
 });
 
 /* TEXT FADE */

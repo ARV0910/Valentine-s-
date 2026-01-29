@@ -1,7 +1,7 @@
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(135deg, #ff4f9a, #c77dff) !important;
+  background: linear-gradient(135deg, #ff4f9a, #c77dff);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 200% 200%;
@@ -49,6 +49,10 @@ button {
 
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+}
+
+#noBtn {
+  transition: transform 0.25s ease;
 }
 
 /* Hover (desktop only) */
@@ -112,16 +116,16 @@ button:active {
 }
 
 /* Improved heart motion */
-@keyframes floatUp {
-  from {
-    transform: translateY(0) translateX(0);
-    opacity: 1;
+@keyframes floatUp{
+  0%{
+    transform: translateY(0) scale(1);
+    opacity:1;
   }
-  to {
-    transform: translateY(-120vh) translateX(40px);
-    opacity: 0;
+  100%{
+    transform: translateY(-120vh) scale(1.6);
+    opacity:0;
   }
-} 
+}
 
 /* ✨ Sparkles */
 
@@ -169,4 +173,9 @@ button:active {
   to {
     transform: translateY(110vh) rotate(360deg);
   }
+}
+
+body.yes-mode {
+  background: linear-gradient(135deg, #ff9acb, #ffc3e6);
+  transition: background 1.5s ease;
 }
