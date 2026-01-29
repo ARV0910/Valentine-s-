@@ -1,143 +1,159 @@
+/* ===== GLOBAL ===== */
+
 body {
   margin: 0;
   height: 100vh;
+
   background: linear-gradient(135deg, #ff4f9a, #c77dff);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: 200% 200%;
   animation: bgMove 6s ease infinite;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   font-family: Arial, sans-serif;
   overflow: hidden;
-} 
 
-.card{
-  background:white;
-  width:85%;
-  max-width:300px;
-  padding:30px;
-  border-radius:20px;
-  text-align:center;
-  box-shadow: 0 0 30px rgba(255, 105, 180, 0.35);
+  transition: background 1.8s ease;
+}
+
+/* Animated background motion */
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== CARD ===== */
+
+.card {
+  background-color: #ffffff !important;
+
+  width: 85%;
+  max-width: 300px;
+  padding: 30px;
+
+  border-radius: 20px;
+  text-align: center;
+
+  box-shadow: 0 0 30px rgba(255,105,180,0.35);
+
   position: relative;
-  z-index: 2;
+  z-index: 5;
+
+  animation: popIn 0.8s ease;
+
+  isolation: isolate;
+  transform: translateZ(0);
 }
 
-h1{
-  color:#ff4f8b;
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
 }
+
+/* ===== TEXT ===== */
+
+h1 {
+  color: #ff4f8b;
+}
+
+#text {
+  transition: opacity 0.2s ease;
+}
+
+/* ===== BUTTONS ===== */
 
 button {
   width: 100%;
   padding: 14px;
   margin-top: 15px;
+
   font-size: 18px;
   border-radius: 30px;
   border: none;
+
   background: #ff4f8b;
   color: white;
+
   cursor: pointer;
 
-  box-shadow: 0 0 12px rgba(255, 120, 180, 0.6);
+  box-shadow: 0 0 12px rgba(255,120,180,0.6);
 
   transition: 
-    transform 0.08s ease,
+    transform 0.08s ease-out,
     box-shadow 0.12s ease,
     background 0.12s ease;
+
+  will-change: transform;
 
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
 
+/* Desktop hover */
+@media (hover: hover) {
+  button:hover:not(:active) {
+    transform: scale(1.05);
+    background: #ff5fa2;
+    box-shadow: 0 0 18px rgba(227,76,190,0.9);
+  }
+}
+
+/* Pressed */
+button:active {
+  transform: scale(calc(var(--scale, 1) * 0.94)); 
+  box-shadow: 0 0 6px rgba(255,120,180,0.35);
+}
+
+/* No button special */
 #noBtn {
+  --scale: 1;
+  transform: scale(var(--scale));
   transition: transform 0.25s ease;
 }
 
-/* Hover (desktop only) */
-@media (hover: hover) {
-  button:hover {
-    transform: scale(1.05);
-    background: #ff5fa2;
-    box-shadow: 0 0 18px rgba(227, 76, 190, 0.9);
-  }
+/* ===== UTIL ===== */
+
+.hidden {
+  display: none;
 }
 
-/* Pressed (mobile + desktop) */
-button:active {
-  transform: scale(0.94);
-  box-shadow: 0 0 8px rgba(255, 120, 180, 0.4);
-}
+/* ===== HEARTS ===== */
 
-.hidden{
-  display:none;
-}
+.heart {
+  position: fixed;
+  bottom: -30px;
+  font-size: 24px;
+  pointer-events: none;
 
-/* ❤️ Floating Hearts */
-
-.heart{
-  position:fixed;
-  bottom:-30px;
-  font-size:24px;
   animation: floatUp 3s ease-out forwards;
-  pointer-events:none;
 }
 
-@keyframes floatUp{
-  from{
-    transform:translateY(0);
-    opacity:1;
-  }
-  to{
-    transform:translateY(-120vh);
-    opacity:0;
-  }
-}
-/* Card entrance */
-.card {
-  animation: popIn 0.8s ease;
-}
-
-@keyframes popIn {
+@keyframes floatUp {
   from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
-}
-
-/* Text smooth fade */
-#text {
-  transition: opacity 0.2s ease;
-}
-
-/* Improved heart motion */
-@keyframes floatUp{
-  0%{
-    transform: translateY(0) scale(1);
-    opacity:1;
-  }
-  100%{
+  to {
     transform: translateY(-120vh) scale(1.6);
-    opacity:0;
+    opacity: 0;
   }
 }
 
-/* ✨ Sparkles */
+/* ===== SPARKLES ===== */
 
 .sparkle {
   position: fixed;
   width: 6px;
   height: 6px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255,255,255,0.8);
   border-radius: 50%;
   pointer-events: none;
-  animation: sparkleFloat 6s linear forwards;
+
   filter: blur(0.5px);
+  animation: sparkleFloat 6s linear forwards;
 }
 
 @keyframes sparkleFloat {
@@ -154,16 +170,18 @@ button:active {
   }
 }
 
-/* 🎊 Confetti */
+/* ===== CONFETTI ===== */
 
 .confetti {
   position: fixed;
   top: -10px;
   width: 10px;
   height: 14px;
+
   opacity: 0.9;
-  animation: confettiFall 3s linear forwards;
   pointer-events: none;
+
+  animation: confettiFall 3s linear forwards;
 }
 
 @keyframes confettiFall {
@@ -175,7 +193,8 @@ button:active {
   }
 }
 
+/* ===== YES MODE BACKGROUND ===== */
+
 body.yes-mode {
   background: linear-gradient(135deg, #ff9acb, #ffc3e6);
-  transition: background 1.5s ease;
 }

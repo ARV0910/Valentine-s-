@@ -29,22 +29,22 @@ nextBtn.addEventListener("click", () => {
 
 yesBtn.addEventListener("click", () => {
 
-  // Burst hearts
-  for(let i = 0; i < 25; i++){
-    setTimeout(spawnHeart, i * 60);
-  }
+  // Let press animation show first
+  setTimeout(() => {
 
-  // Confetti
-  spawnConfetti();
+    for(let i = 0; i < 25; i++){
+      setTimeout(spawnHeart, i * 60);
+    }
 
-  // Change text
-  text.innerText = "YAYYYY 💍💖 I LOVE YOUUU";
+    spawnConfetti();
 
-  // Hide buttons
-  choices.classList.add("hidden");
+    text.innerText = "YAYYYY 💍💖 I LOVE YOUUU";
 
-  // Background transition
-  document.body.classList.add("yes-mode");
+    choices.classList.add("hidden");
+
+    document.body.classList.add("yes-mode");
+
+  }, 80);
 
 });
 
@@ -52,9 +52,9 @@ let noScale = 1;
 
 noBtn.addEventListener("click", () => {
   noScale -= 0.12; // shrink amount
-  if(noScale < 0.4) noScale = 0.001; // minimum size
+  if(noScale < 0.001) noScale = 0.001; // minimum size
 
-  noBtn.style.transform = `scale(${noScale})`;
+  noBtn.style.setProperty("--scale", noScale);
   text.innerText = "I'll keep trying till you say yes 🥺💝";
 });
 
