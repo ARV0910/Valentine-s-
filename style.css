@@ -43,7 +43,7 @@ button {
   box-shadow: 0 0 12px rgba(255, 120, 180, 0.6);
 
   transition: 
-    transform 0.12s ease,
+    transform 0.08s ease,
     box-shadow 0.12s ease,
     background 0.12s ease;
 
