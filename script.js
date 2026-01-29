@@ -13,9 +13,11 @@ const choices = document.getElementById("choices");
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 
-nextBtn.addEventListener("pointerdown", () => {
+nextBtn.addEventListener("click", () => {
   
   index++;
+  spawnHeart();
+  spawnHeart();
   spawnHeart();
 
   if (index < messages.length) {
@@ -30,7 +32,7 @@ nextBtn.addEventListener("pointerdown", () => {
   }
 });
 
-yesBtn.addEventListener("pointerdown", () => {
+yesBtn.addEventListener("click", () => {
 
   // Let press animation show first
   setTimeout(() => {
@@ -53,7 +55,7 @@ yesBtn.addEventListener("pointerdown", () => {
 
 let noScale = 1;
 
-noBtn.addEventListener("pointerdown", () => {
+noBtn.addEventListener("click", () => {
   noScale -= 0.12; // shrink amount
   if(noScale < 0.001) noScale = 0.001; // minimum size
 
