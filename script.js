@@ -13,6 +13,16 @@ const choices = document.getElementById("choices");
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.classList.add("pressed");
+
+    setTimeout(() => {
+      btn.classList.remove("pressed");
+    }, 120);
+  });
+});
+
 nextBtn.addEventListener("click", () => {
   
   index++;
