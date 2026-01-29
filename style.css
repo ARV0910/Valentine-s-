@@ -112,6 +112,10 @@ button:active {
   box-shadow: 0 0 6px rgba(255,120,180,0.35);
 }
 
+button.pressed {
+  transform: scale(0.94);
+}
+
 /* No button special */
 #noBtn {
   --scale: 1;

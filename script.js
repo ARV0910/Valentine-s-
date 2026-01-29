@@ -129,4 +129,15 @@ function spawnSparkle() {
 }
 
 /* spawn sparkles slowly */
-setInterval(spawnSparkle, 300);
+setInterval(spawnSparkle, 100);
+
+function pressEffect(btn){
+  btn.classList.add("pressed");
+  setTimeout(() => {
+    btn.classList.remove("pressed");
+  }, 120);
+}
+
+nextBtn.addEventListener("click", () => pressEffect(nextBtn));
+yesBtn.addEventListener("click", () => pressEffect(yesBtn));
+noBtn.addEventListener("click", () => pressEffect(noBtn));
