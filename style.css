@@ -40,25 +40,30 @@ button {
   color: white;
   cursor: pointer;
 
-  /* Always glowing */
   box-shadow: 0 0 12px rgba(255, 120, 180, 0.6);
 
   transition: 
-    transform 0.15s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
-} 
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
 
-button:active {
-  transform: scale(0.95);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
+/* Hover (desktop only) */
 @media (hover: hover) {
   button:hover {
     transform: scale(1.05);
     background: #ff5fa2;
-    box-shadow: 0 0 18px #ff4f9a(255, 200, 120, 0.9); /* warm golden glow */
+    box-shadow: 0 0 18px rgba(227, 76, 190, 0.9);
   }
+}
+
+/* Pressed (mobile + desktop) */
+button:active {
+  transform: scale(0.94);
+  box-shadow: 0 0 8px rgba(255, 120, 180, 0.4);
 }
 
 .hidden{
