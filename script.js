@@ -1,7 +1,10 @@
 const messages = [
   "I made something for you hehe :p",
-  "You make my days brighter 🥺",
-  "You mean a lot to me ❤️",
+  "You make my days brighter and more joyful 😋",
+  "You're truly wonderful, amazing and gorgeous 😍",
+  "And DIVINE!!! (of course)",
+  "Also my favourite person 😗",
+  "So I've a question for you beautiful lady!!",
   "Will you be my Valentine? 💖"
 ];
 
@@ -53,7 +56,7 @@ yesBtn.addEventListener("click", () => {
 
     spawnConfetti();
 
-    text.innerText = "YAYYYY 💍💖 I LOVE YOUUU";
+    text.innerText = "YAYYYY 💍💖 I LOVE YOUUU 😍";
 
     choices.classList.add("hidden");
 
